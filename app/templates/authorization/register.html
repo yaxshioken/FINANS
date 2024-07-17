@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+
+    <form method="POST" action="{{ url_for('register') }}">
+        {{ form.hidden_tag() }}
+
+        <label for="username">Username:</label><br>
+        {{ form.username(size=20) }}<br>
+        {% for error in form.username.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+
+        <label for="email">Email:</label><br>
+        {{ form.email(size=50) }}<br>
+        {% for error in form.email.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+
+        <label for="password">Password:</label><br>
+        {{ form.password(size=20) }}<br>
+        {% for error in form.password.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+
+        <label for="card_number">Card Number:</label><br>
+        {{ form.card_number(size=16, type="number") }}<br>
+        {% for error in form.card_number.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+
+        <label for="card_date">Card Expiry Date:</label><br>
+        {{ form.card_date(size=10, type="date") }}<br>
+        {% for error in form.card_date.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+
+        <br>
+        <input type="submit" value="Register">
+    </form>
+
+</body>
+</html>
